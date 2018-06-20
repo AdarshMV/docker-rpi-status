@@ -1,0 +1,19 @@
+version: '3.4'
+services:
+  status:
+    image: docker
+    command: ["docker", "run", "-it", "--device", "/dev/vchiq", "--rm", "-h=$$:/d(docker info -f {{.Name}})", "shocki/rpi-status"]
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    secrets:
+      - mqtt_pw
+
+    deploy:
+      mode: global
+      placement:
+        constraints:
+          - node.labels.devicetype == raspberrypi
+
+secrets:
+  mqtt_pw:
+    external: true
