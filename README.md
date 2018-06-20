@@ -10,6 +10,10 @@ Uses the vcgencmd tool from Broadcom to collect information about the current st
 
 Change-Log
 ----------
+##### 0.0.2
+* update readme
+* working on rpi2 with services
+
 ##### 0.0.1
 * initial version
 
